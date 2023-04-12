@@ -27,6 +27,7 @@ const App = () => {
     };
     return arupd;
   };
+
   const nextAne = () => {
     setSelected(rda);
   };
