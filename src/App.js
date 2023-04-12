@@ -12,19 +12,31 @@ const App = () => {
     "The only way to go fast, is to go well.",
   ];
 
-  const [selected, setSelected] = useState(0);
-  const [vote, setVote] = useState(0);
+  const rda = () => Math.floor(Math.random() * 8);
+  const ar = Array(8).fill(0);
 
-  const btnVote = () => {
-    setVote(vote + 1);
+  const [selected, setSelected] = useState(rda);
+  const [ars, setArs] = useState(ar);
+
+  const btnVote = (ind) => {
+    const arupd = () => {
+      const updVote = ars[ind] + 1;
+      const cpyArs = [...ars];
+      cpyArs[ind] = updVote;
+      setArs(cpyArs);
+    };
+    return arupd;
+  };
+  const nextAne = () => {
+    setSelected(rda);
   };
 
   return (
     <>
       <div>{anecdotes[selected]}</div>
-      <p>has {vote} votes</p>
-      <button onClick={btnVote}>vote</button>
-      <button>next anecdotes</button>
+      <p>has {ars[selected]} votes</p>
+      <button onClick={btnVote(selected)}>vote</button>
+      <button onClick={nextAne}>next anecdotes</button>
     </>
   );
 };
