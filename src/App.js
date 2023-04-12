@@ -13,10 +13,17 @@ const App = () => {
   ];
 
   const [selected, setSelected] = useState(0);
+  const [vote, setVote] = useState(0);
+
+  const btnVote = () => {
+    setVote(vote + 1);
+  };
 
   return (
     <>
       <div>{anecdotes[selected]}</div>
+      <p>has {vote} votes</p>
+      <button onClick={btnVote}>vote</button>
       <button>next anecdotes</button>
     </>
   );
