@@ -32,12 +32,18 @@ const App = () => {
     setSelected(rda);
   };
 
+  const indLg = ars.indexOf(Math.max(...ars));
+
   return (
     <>
+      <h1>Anecdote of the day</h1>
       <div>{anecdotes[selected]}</div>
       <p>has {ars[selected]} votes</p>
       <button onClick={btnVote(selected)}>vote</button>
       <button onClick={nextAne}>next anecdotes</button>
+      <h2>Anecdote with most votes</h2>
+      <div>{anecdotes[indLg]}</div>
+      <p>has {ars[indLg]} votes</p>
     </>
   );
 };
